@@ -1,0 +1,43 @@
+# Rent Management System
+
+The Rent Management System is a Python-based application that allows landlords to manage rental properties, tenants, payments, and lease terminations.
+It provides a set of functionalities to streamline the rental management process and keep track of important information.
+
+## Features
+
+- Add rental properties with details such as property name, monthly rent, security deposit, and due date.
+- Assign tenants to specific rental properties.
+- Allow tenants to pay security deposits and rent (including late fees for overdue payments).
+- Enable landlords to withdraw collected rent.
+- Terminate leases and automatically refund security deposits to tenants.
+- Maintain logs of payments, withdrawals, and lease terminations.
+- Provide access to rental property information, tenant details, and various logs.
+
+## Usage
+
+1. Create an instance of the `RentManagementSystem` class with the landlord's address.
+2. Use the available methods to add rental properties, assign tenants, process payments, withdraw rent, and terminate leases.
+3. Access the rental property information, tenant details, payment logs, withdrawal logs, and termination logs using the provided methods.
+
+## Example
+
+```python
+# Create an instance of the RentManagementSystem
+landlord_address = "0x123..."
+rent_system = RentManagementSystem(landlord_address)
+
+# Add rental properties
+rent_system.add_property("Property 1", 1000, 500, "2024-05-10", landlord_address)
+rent_system.add_property("Property 2", 1500, 750, "2024-05-15", landlord_address)
+
+# Add tenants to properties
+rent_system.add_tenant_to_property(1, "0xabc...", landlord_address)
+rent_system.add_tenant_to_property(2, "0xdef...", landlord_address)
+
+# Tenants pay security deposits and rent
+rent_system.pay_security_deposit(1, "0xabc...", 500)
+rent_system.pay_rent(1, "0xabc...", 1000)
+
+# Landlord withdraws rent and terminates a lease
+rent_system.withdraw_rent(500, landlord_address)
+rent_system.terminate_lease(2, landlord_address)
